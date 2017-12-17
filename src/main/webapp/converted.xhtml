@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Currency Converter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1>Online Currency Converter</h1>
+        <h:form>
+            <p>
+                <h3>
+                    <h:selectOneMenu value="#{userManager.fromCurrency}">
+   			<f:selectItems value="#{userManager.currencies}"/>
+                    </h:selectOneMenu>
+                    →
+                    <h:selectOneMenu value="#{userManager.toCurrency}">
+   			<f:selectItems value="#{userManager.currencies}" />
+                    </h:selectOneMenu>
+                </h3>
+            </p>
+            <p>
+                <h:inputText value="#{userManager.amount}"/>
+                <h:commandButton value="Convert" action="#{userManager.performConversion}"/>
+                
+            </p>
+            <p>
+                <h:outputText value="#{userManager.amount} #{userManager.fromCurrency} "/>
+                <h:outputText value="is #{userManager.result} #{userManager.toCurrency}"/>
+            </p>
+        </h:form>
+    </h:body>
+</html>
